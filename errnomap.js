@@ -1,11 +1,7 @@
 console.log(
-    JSON.stringify(
-        Array.from(
-            process.binding('uv')
-                .getErrorMap()
-                .entries()
-        ),
-        null,
-        2
+    Array.from(
+        process.binding('uv')
+            .getErrorMap()
+            .entries()
     )
 )

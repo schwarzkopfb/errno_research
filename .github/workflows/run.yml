@@ -5,14 +5,11 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ${{ matrix.config.os }}
+    runs-on: ${{ matrix.platform }}
     
     strategy:
       matrix:
-        config:
-          - os: macos-10.15
-          - os: windows-2019
-          - os: ubuntu-latest
+        platform: [macos-10.15, windows-2019, ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v2
