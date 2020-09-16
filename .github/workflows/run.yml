@@ -1,0 +1,23 @@
+name: run
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.config.os }}
+    
+    strategy:
+      matrix:
+        config:
+          - os: macos-10.15
+          - os: windows-2019
+          - os: ubuntu-latest-xl
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - run: node errnomap.js
