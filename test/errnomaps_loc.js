@@ -1,5 +1,6 @@
 // copied here from my local VMs' results
 
+// MacOS 11.0 Beta (20A5364e)
 exports.darwin = [
     [ -7, [ 'E2BIG', 'argument list too long' ] ],
     [ -13, [ 'EACCES', 'permission denied' ] ],
@@ -83,6 +84,7 @@ exports.darwin = [
     [ -92, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
 
+// Windows 10 build 19041.264
 exports.windows = [
     [ -4093, [ 'E2BIG', 'argument list too long' ] ],
     [ -4092, [ 'EACCES', 'permission denied' ] ],
@@ -166,6 +168,7 @@ exports.windows = [
     [ -4027, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
 
+// CentOS Linux release 7.5.1804 (Core) 
 exports.linux = [
     [ -7, [ 'E2BIG', 'argument list too long' ] ],
     [ -13, [ 'EACCES', 'permission denied' ] ],

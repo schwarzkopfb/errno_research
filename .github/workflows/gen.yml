@@ -1,4 +1,4 @@
-name: Generate errno map
+name: Generate errno maps
 
 on: [push]
 
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 14.x
       - run: node gen.js > ${{ matrix.platform }}.js
-      - name: Upload math result for job 1
+      - name: Upload result artifact
         uses: actions/upload-artifact@v2
         with:
           name: errnomap

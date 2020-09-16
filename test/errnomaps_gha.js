@@ -1,5 +1,6 @@
 // copied here from GH Actions results
 
+// MacOS 10.15.6 (19G2021)
 exports.darwin = [
     [ -7, [ 'E2BIG', 'argument list too long' ] ],
     [ -13, [ 'EACCES', 'permission denied' ] ],
@@ -86,6 +87,7 @@ exports.darwin = [
     [ -92, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
 
+// Microsoft Windows Server 2019 10.0.17763 Datacenter
 exports.windows = [
     [ -4093, [ 'E2BIG', 'argument list too long' ] ],
     [ -4092, [ 'EACCES', 'permission denied' ] ],
@@ -172,6 +174,7 @@ exports.windows = [
     [ -4027, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
 
+// Ubuntu 18.04.5 LTS
 exports.linux = [
     [ -7, [ 'E2BIG', 'argument list too long' ] ],
     [ -13, [ 'EACCES', 'permission denied' ] ],
