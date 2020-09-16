@@ -1,6 +1,6 @@
-// copied here from GH Actions results
+// copied here from my local VMs' results
 
-const darwin = [
+exports.darwin = [
     [ -7, [ 'E2BIG', 'argument list too long' ] ],
     [ -13, [ 'EACCES', 'permission denied' ] ],
     [ -48, [ 'EADDRINUSE', 'address already in use' ] ],
@@ -66,10 +66,7 @@ const darwin = [
     [ -41, [ 'EPROTOTYPE', 'protocol wrong type for socket' ] ],
     [ -34, [ 'ERANGE', 'result too large' ] ],
     [ -30, [ 'EROFS', 'read-only file system' ] ],
-    [
-        -58,
-        [ 'ESHUTDOWN', 'cannot send after transport endpoint shutdown' ]
-    ],
+    [ -58, [ 'ESHUTDOWN', 'cannot send after transport endpoint shutdown' ] ],
     [ -29, [ 'ESPIPE', 'invalid seek' ] ],
     [ -3, [ 'ESRCH', 'no such process' ] ],
     [ -60, [ 'ETIMEDOUT', 'connection timed out' ] ],
@@ -86,7 +83,7 @@ const darwin = [
     [ -92, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
 
-const windows = [
+exports.windows = [
     [ -4093, [ 'E2BIG', 'argument list too long' ] ],
     [ -4092, [ 'EACCES', 'permission denied' ] ],
     [ -4091, [ 'EADDRINUSE', 'address already in use' ] ],
@@ -152,10 +149,7 @@ const windows = [
     [ -4044, [ 'EPROTOTYPE', 'protocol wrong type for socket' ] ],
     [ -4034, [ 'ERANGE', 'result too large' ] ],
     [ -4043, [ 'EROFS', 'read-only file system' ] ],
-    [
-      -4042,
-      [ 'ESHUTDOWN', 'cannot send after transport endpoint shutdown' ]
-    ],
+    [ -4042, [ 'ESHUTDOWN', 'cannot send after transport endpoint shutdown' ] ],
     [ -4041, [ 'ESPIPE', 'invalid seek' ] ],
     [ -4040, [ 'ESRCH', 'no such process' ] ],
     [ -4039, [ 'ETIMEDOUT', 'connection timed out' ] ],
@@ -172,7 +166,7 @@ const windows = [
     [ -4027, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
 
-const linux = [
+exports.linux = [
     [ -7, [ 'E2BIG', 'argument list too long' ] ],
     [ -13, [ 'EACCES', 'permission denied' ] ],
     [ -98, [ 'EADDRINUSE', 'address already in use' ] ],
@@ -238,10 +232,7 @@ const linux = [
     [ -91, [ 'EPROTOTYPE', 'protocol wrong type for socket' ] ],
     [ -34, [ 'ERANGE', 'result too large' ] ],
     [ -30, [ 'EROFS', 'read-only file system' ] ],
-    [
-      -108,
-      [ 'ESHUTDOWN', 'cannot send after transport endpoint shutdown' ]
-    ],
+    [ -108, [ 'ESHUTDOWN', 'cannot send after transport endpoint shutdown' ] ],
     [ -29, [ 'ESPIPE', 'invalid seek' ] ],
     [ -3, [ 'ESRCH', 'no such process' ] ],
     [ -110, [ 'ETIMEDOUT', 'connection timed out' ] ],
@@ -255,5 +246,5 @@ const linux = [
     [ -121, [ 'EREMOTEIO', 'remote I/O error' ] ],
     [ -25, [ 'ENOTTY', 'inappropriate ioctl for device' ] ],
     [ -4028, [ 'EFTYPE', 'inappropriate file type or format' ] ],
-    [ -84, [ 'EILSEQ', 'illegal byte sequence' ] ]   
+    [ -84, [ 'EILSEQ', 'illegal byte sequence' ] ]
 ]
