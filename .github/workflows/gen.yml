@@ -12,9 +12,14 @@ jobs:
         platform: [macos-10.15, windows-2019, ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - run: node gen.js
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: node gen.js > ${{ matrix.platform }}.js
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: errnomap
+          path: ${{ matrix.platform }}.js
