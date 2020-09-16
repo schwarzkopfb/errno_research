@@ -1,4 +1,4 @@
-name: run
+name: Generate errno map
 
 on: [push]
 
@@ -17,4 +17,4 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
-    - run: node errnomap.js
+    - run: node gen.js
