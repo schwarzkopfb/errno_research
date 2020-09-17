@@ -1,10 +1,36 @@
-name: Compare errno maps
+name: Generate errno maps
 
 on: [push]
 
 jobs:
+  gen:
+
+    runs-on: ${{ matrix.config.platform }}
+    
+    strategy:
+      matrix:
+        config:
+          - name: darwin
+            platform: macos-10.15
+          - name: windows
+            platform: windows-2019
+          - name: linux
+            platform: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - run: node gen.js > ${{ matrix.config.platform }}.js
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: errnomap_${{ matrix.config.name }}
+          path: ${{ matrix.config.platform }}.js
+
   test:
-    needs: gen
 
     runs-on: ubuntu-latest
 
