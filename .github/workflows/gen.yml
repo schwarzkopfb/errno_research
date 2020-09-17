@@ -9,15 +9,13 @@ jobs:
     
     strategy:
       matrix:
-        - config:
-          name: darwin
-          platform: macos-10.15
-        - config:
-          name: windows
-          platform: windows-2019
-        - config:
-          name: linux
-          platform: ubuntu-latest
+        config:
+          - name: darwin
+            platform: macos-10.15
+          - name: windows
+            platform: windows-2019
+          - name: linux
+            platform: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -31,4 +29,3 @@ jobs:
         with:
           name: errnomap_${{ matrix.config.name }}
           path: ${{ matrix.config.name }}.js
-          
