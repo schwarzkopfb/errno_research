@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: errnomap_${{ matrix.config.name }}
-          path: ${{ matrix.config.name }}.js
+          path: ${{ matrix.config.platform }}.js
