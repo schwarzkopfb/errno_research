@@ -1,7 +1,11 @@
 const { equal, notEqual } = require('assert')
 const { readdirSync } = require('fs')
 const { resolve } = require('path')
+const { listenerCount } = require('process')
 const dirsArg = process.argv[2] || ""
+let groups = []
+let osList = []
+let compCount = 0
 
 // set default
 let dirs = [
@@ -28,16 +32,19 @@ if (dirsArg.startsWith('-')) {
     }
 }
 
-dirs
+groups = dirs
     .map(d => readdirSync(d).map(f => resolve(d, f)))
     .map(files => files.map(require))
-    .forEach(maps => 
-        maps.forEach((map, i) => {
-            if (i === 0) return
 
-            compare(map, maps[i - 1])
-        })
-    )
+osList = groups.map(g => g.map(({ os }) => os)).flat()
+
+groups.forEach(
+    maps => maps.forEach((map, i) => {
+        if (i === 0) return
+
+        compare(map, maps[i - 1])
+    })
+)
 
 function compare(a, b) {
     console.log(`\nCompare\nA: "${a.os}"\nB: "${b.os}"\n`)
@@ -60,9 +67,12 @@ function compare(a, b) {
             descA, descB, 
             `errno ${errno} should represent the same description on both systems, got "${descA}" !== "${descB}"`
         )
+        compCount++
 
         console.log(`${errno} => [${codeA}]: ${descA} ✅`)
     }
 }
 
-console.log('\nAll tests passed! 🍭')
+console.log(`\nCompared ${osList.length} operating systems:`)
+osList.forEach(os => console.log(` - "${os}"`))
+console.log(`\n${compCount} tests passed! 🍭`)
