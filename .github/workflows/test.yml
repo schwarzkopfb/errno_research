@@ -1,10 +1,9 @@
-name: Generate errno maps
+name: Generate & compare errno maps
 
 on: [push]
 
 jobs:
   gen:
-
     runs-on: ${{ matrix.config.platform }}
     
     strategy:
@@ -31,6 +30,7 @@ jobs:
           path: ${{ matrix.config.platform }}.js
 
   test:
+    needs: gen
 
     runs-on: ubuntu-latest
 
