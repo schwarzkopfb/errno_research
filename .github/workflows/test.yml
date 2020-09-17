@@ -3,7 +3,8 @@ name: Compare errno maps
 on: [push]
 
 jobs:
-  build:
+  test:
+    needs: gen
 
     runs-on: ubuntu-latest
 
