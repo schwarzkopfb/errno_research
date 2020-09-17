@@ -15,18 +15,18 @@ jobs:
         node-version: 14.x
     - name: Retrieve linux output
     - uses: actions/download-artifact@v2
-        with:
-          name: errnomap_linux
-          path: test/linux
+      with:
+        name: errnomap_linux
+        path: test/linux
     - name: Retrieve darwin output
     - uses: actions/download-artifact@v2
-        with:
-          name: errnomap_darwin
-          path: test/darwin
+      with:
+        name: errnomap_darwin
+        path: test/darwin
     - name: Retrieve windows output
     - uses: actions/download-artifact@v2
-        with:
-          name: errnomap_windows
-          path: test/windows
+      with:
+        name: errnomap_windows
+        path: test/windows
     - name: Execute comparisons
     - run: node test
